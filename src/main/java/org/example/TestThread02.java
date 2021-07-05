@@ -1,5 +1,8 @@
 package org.example;
 
+/**
+ * 两个方法都对b资源有修改,所以应该在涉及到修改b资源的方法上都加上同步
+ */
 public class TestThread02 implements Runnable {
     int b=100;
     public synchronized void m1() throws Exception{
