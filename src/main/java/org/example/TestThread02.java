@@ -4,17 +4,19 @@ package org.example;
  * 两个方法都对b资源有修改,所以应该在涉及到修改b资源的方法上都加上同步
  */
 public class TestThread02 implements Runnable {
-    int b=100;
-    public synchronized void m1() throws Exception{
-        b=1000;
+    int b = 100;
+
+    public synchronized void m1() throws Exception {
+        b = 1000;
         Thread.sleep(5000);
         System.out.println("m1b=" + b);
 
     }
-    public /*synchronized*/ void m2() throws Exception{
+
+    public /*synchronized*/ void m2() throws Exception {
 
         Thread.sleep(2000);
-        b=2000;
+        b = 2000;
         System.out.println("m2b=" + b);
 
     }

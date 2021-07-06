@@ -1,17 +1,19 @@
 package org.example;
 
 public class TestThread01 implements Runnable {
-    int b=100;
-    public synchronized void m1() throws Exception{
-        b=1000;
+    int b = 100;
+
+    public synchronized void m1() throws Exception {
+        b = 1000;
 //        Thread.sleep(5000);
         System.out.println("m1b=" + b);
 
     }
-    public /*synchronized */void m2() throws Exception{
+
+    public /*synchronized */void m2() throws Exception {
 
 //        Thread.sleep(2000);
-        b=2000;
+        b = 2000;
         System.out.println("m2b=" + b);
 
     }
