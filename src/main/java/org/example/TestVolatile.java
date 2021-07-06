@@ -21,6 +21,7 @@ public class TestVolatile {
         threads.forEach((e)->e.start());
         threads.forEach((e)-> {
             try {
+                //让这些线程循环join进别的线程里去执行,会让count累加起来
                 e.join();
             } catch (InterruptedException interruptedException) {
                 interruptedException.printStackTrace();
