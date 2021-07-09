@@ -1,4 +1,4 @@
-package org.example.interview;
+package org.example.interview1;
 
 import java.util.Collections;
 import java.util.LinkedList;

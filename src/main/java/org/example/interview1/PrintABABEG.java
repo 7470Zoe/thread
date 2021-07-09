@@ -1,4 +1,4 @@
-package org.example.interview;
+package org.example.interview1;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;

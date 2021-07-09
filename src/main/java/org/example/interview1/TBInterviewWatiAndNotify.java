@@ -1,8 +1,7 @@
-package org.example.interview;
+package org.example.interview1;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 使线程2监控线程1,当线程1中数据有5个的时候,线程2结束执行
