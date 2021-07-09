@@ -30,6 +30,8 @@ public class Container1<T> {
 
         lists.add(t);
         ++count;//因为这里有count++,所以要有synchronized
+
+//        回家测试一下这个count和list的size是不是一个数
         this.notifyAll(); //通知消费者线程进行消费
     }
 
