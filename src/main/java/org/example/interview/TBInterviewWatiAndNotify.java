@@ -74,11 +74,11 @@ public class TBInterviewWatiAndNotify {
                             e.printStackTrace();
                         }
                     }
-                    try {
+               /*     try {
                         TimeUnit.SECONDS.sleep(1);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
-                    }
+                    }*/
                 }
             }
         }).start();

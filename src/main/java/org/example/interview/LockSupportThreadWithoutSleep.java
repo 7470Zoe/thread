@@ -17,22 +17,11 @@ public class LockSupportThreadWithoutSleep {
     public int size() {
         return lists.size();
     }
-
     static Thread t = null, thread = null;
-
     public static void main(String[] args) {
-
         LockSupportThreadWithoutSleep lockSupportThread = new LockSupportThreadWithoutSleep();
-        thread = new Thread(() -> {
 
-            if (lockSupportThread.size() != 5) {
-                LockSupport.unpark(t);
-                LockSupport.park();
-                System.out.println("线程2监控");
-            }
-            System.out.println("线程2结束");
-
-        });
+//        两层的park和unpark不能写反了
 
 
         t = new Thread(() -> {
@@ -41,31 +30,27 @@ public class LockSupportThreadWithoutSleep {
                 lockSupportThread.add("i");
                 System.out.println("加到了第" + i);
                 if (lockSupportThread.size() == 5) {
-                    LockSupport.park();
+//                    先把自己park上
                     LockSupport.unpark(thread);
-                    System.out.println("线程2启动");
+                    LockSupport.park();
                 }
             }
         }
         );
+        thread = new Thread(() -> {
 
+            LockSupport.park();
+
+//                不等于5的时候,不要park t然后把自己park上
+            System.out.println("线程2监控");
+
+            LockSupport.unpark(t);
+            System.out.println("线程2结束");
+
+        });
 
         thread.start();
         t.start();
     }
-/** 输出为:
- * 加到了第0
- * 加到了第1
- * 加到了第2
- * 加到了第3
- * 加到了第4
- * 线程2启动
- * 线程2监控
- * 线程2结束
- * 加到了第5
- * 加到了第6
- * 加到了第7
- * 加到了第8
- * 加到了第9
- */
+
 }
