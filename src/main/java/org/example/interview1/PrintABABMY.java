@@ -2,6 +2,10 @@ package org.example.interview1;
 
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * wait和
+ * notify 唤醒在此对象监视器上等待的单个线程
+ */
 public class PrintABABMY {
     public volatile static int i = 0;
     public volatile static boolean flag = true;
