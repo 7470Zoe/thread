@@ -1,4 +1,4 @@
-package org.example;
+package org.example.interview;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +70,7 @@ public class TBInterviewCountDownLatch {
                 if (t.size() == 5) {
                     countDownLatch.countDown();
 
-//                    如果没睡这一秒,不行,因为打印太快了
+//                    如果没睡这一秒,t1会打印出许多,因为打印太快了,但是t2也确实执行了
                     try {
                         TimeUnit.SECONDS.sleep(1);
                     } catch (InterruptedException e) {
