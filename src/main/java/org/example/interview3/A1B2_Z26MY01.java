@@ -2,7 +2,7 @@ package org.example.interview3;
 
 import java.util.concurrent.locks.LockSupport;
 
-public class A1B2_Z26MY {
+public class A1B2_Z26MY01 {
     static Thread t1=null,t2=null;
     static char[] c = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
