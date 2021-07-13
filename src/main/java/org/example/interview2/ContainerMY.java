@@ -52,7 +52,6 @@ public class ContainerMY<T> {
 
                 consumer.await();
             }
-//            先在容器里的先出来
             t= list.removeFirst();
             count--;
             System.out.println(Thread.currentThread().getName()+"消费了一个"+t+"号");

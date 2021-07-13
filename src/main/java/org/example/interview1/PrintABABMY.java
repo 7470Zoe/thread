@@ -4,7 +4,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * wait和
- * notify 唤醒在此对象监视器上等待的单个线程
+ * notify 唤醒在此对象监视器上等待的单个线程 必须先notify再wait才行,不然只执行一次
+ *
  */
 public class PrintABABMY {
     public volatile static int i = 0;
@@ -15,7 +16,7 @@ public class PrintABABMY {
 
 
     public static void main(String[] args) {
-        method2_1();
+        method1_2();
     }
 
     /**
@@ -113,8 +114,6 @@ public class PrintABABMY {
                     System.out.print("A");
 //                           在执行后,唤醒其他线程
                     object.notify();
-
-//                        是唤醒其他线程
                     try {
 //                        再停止当前线程
                         object.wait();
@@ -122,6 +121,7 @@ public class PrintABABMY {
                         e.printStackTrace();
                     }
 
+                    object.notify();//必须，否则无法停止程序 最后这个notify是必须的,执行完了要唤醒它:嘿,执行完了哦
 
                 }
             }
@@ -141,7 +141,7 @@ public class PrintABABMY {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-
+                    object.notify();//必须，否则无法停止程序
                 }
             }
         }).start();
