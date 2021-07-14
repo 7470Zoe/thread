@@ -15,6 +15,7 @@ public class ForkJoinPoolmsb {
 
     static {
         for(int i=0; i<nums.length; i++) {
+//            每个mun都是100以内的随机数
             nums[i] = r.nextInt(100);
         }
 
