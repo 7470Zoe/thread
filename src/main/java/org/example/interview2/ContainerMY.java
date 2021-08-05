@@ -32,7 +32,7 @@ public class ContainerMY<T> {
                 producer.await();
             }
             list.add(t);
-            count++;
+//            count++;
             System.out.println(Thread.currentThread().getName()+"生产" + t+"号");
             consumer.signalAll();
         } catch (InterruptedException e) {
@@ -53,7 +53,7 @@ public class ContainerMY<T> {
                 consumer.await();
             }
             t= list.removeFirst();
-            count--;
+//            count--;
             System.out.println(Thread.currentThread().getName()+"消费了一个"+t+"号");
 
             producer.signalAll();
