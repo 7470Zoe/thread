@@ -1,8 +1,9 @@
 package org.example.interview3;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.locks.LockSupport;
 
-public class A1B2_Z26MY01 {
+public class A1B2_Z26LockSupport {
     static Thread t1=null,t2=null;
     static char[] c = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
@@ -13,7 +14,6 @@ public class A1B2_Z26MY01 {
 //                打印完之后先唤醒别的线程
                 LockSupport.unpark(t2);
                 LockSupport.park();
-
             }
 
         });
