@@ -34,6 +34,7 @@ public class CompletableFuture1 {
         System.out.println("use completable future! " + (end - start));
 
         try {
+//            这句话是阻塞的意思
             System.in.read();
         } catch (IOException e) {
             e.printStackTrace();
